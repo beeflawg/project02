@@ -10,7 +10,7 @@ module.exports = function(app) {
     // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
     // So we're sending the user back the route to the members page because the redirect will happen on the front end
     // They won't get this or even be able to access this page if they aren't authed
-    res.json("/members");
+    res.json("/home");
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
@@ -25,7 +25,21 @@ module.exports = function(app) {
       res.redirect(307, "/api/login");
     }).catch(function(err) {
       console.log(err);
-      //res.json(err);
+      res.status(422).json(err.errors[0].message);
+    });
+  });
+
+  // Route for creating a post
+  app.post("/api/posts", function(req, res) {
+    db.Post.create({
+      email: req.user.email,
+      title: req.body.title,
+      body: req.body.body,
+      UserId: req.user.id
+    }).then(function(dbPost){
+      res.json(dbPost);
+    }).catch(function(err) {
+      console.log(err);
       res.status(422).json(err.errors[0].message);
     });
   });
@@ -51,5 +65,4 @@ module.exports = function(app) {
       });
     }
   });
-
 };

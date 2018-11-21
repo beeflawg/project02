@@ -113,3 +113,35 @@ textarea {
 .cap-title {
     color: #fff;
 }
+
+/* chat */
+#chat-container{
+    word-wrap: break-word;
+    max-width: 150px;
+    overflow-y: scroll;
+    overflow-y: inherit;
+    position: fixed;
+    border-right: solid #1ab188;
+    padding-right: 15px;
+    text-align: left;
+  }
+  /* chat */
+  #chatArea {
+    max-height: 400px;
+    overflow: scroll;
+    padding: 2px;
+    margin: 2px;
+    font-size: 12px;
+  }
+  /* chat */
+  ::-webkit-scrollbar { 
+    display: none; 
+    scroll-behavior: auto
+  }
+  /* chat */
+  .footer{
+    position: fixed;
+    bottom: 5px;
+  }
+
+  

@@ -14,8 +14,34 @@
 <body>
     {{> navbar/nav}}
     {{{ body }}}
+      <div class="container-fluid">
+    <div class="col-md-2">
+      <div id="chat-container" class="footer">
+        <h5>
+          Live Chat
+        </h5>
+        <div class="row">
+          <div id="chatArea">
+            <span id="username"></span>
+            <div id="chat-bottom"></div>
+          </div>
+          <form id="myForm">
+            <div id="changeUsername">
+              <input rows="1" id="userName" placeholder="Anonymous" type="textarea" class="form-control"></input>
+              <button id="sendUsername" type="submit" class="btn btn-dark">Change username</button>
+            </div>
+            <div>
+              <textarea rows="2" id="txt" placeholder="message" class="form-control"></textarea>
+              <button type="submit" class="btn btn-dark">Send</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/posts.js"></script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js" type="text/js"></script>
+  <script src='http://' + location.hostname + ':3000/socket.io/socket.io.js'></script>
 </html>

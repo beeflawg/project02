@@ -1,6 +1,10 @@
 // Requiring necessary npm packages
 var express = require("express");
 var session = require("express-session");
+var path = require("path");
+var bodyParser = require("body-parser");
+var server = require('http').createServer(app).listen(PORT);
+var io = require('socket.io').listen(server);
 // Requiring passport as we've configured it
 var passport = require("./config/passport");
 var exphbs = require("express-handlebars");
@@ -26,7 +30,7 @@ app.set("view engine", "handlebars");
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
 
-
+server.listen(PORT)
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(function() {
   app.listen(PORT, function() {

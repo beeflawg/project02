@@ -18,6 +18,7 @@ $(function () {
 
     $.get("/api/user_data").then(function (data) {
         $(".member-name").text(data.email);
+        $(".user").attr("href", "/user/" + data.id);
     });
 
 })

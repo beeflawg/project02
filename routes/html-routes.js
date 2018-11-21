@@ -24,12 +24,32 @@ module.exports = function(app) {
       ],
       include: [db.User]
     }).then(function(dbPost) {
+      //console.log(dbPost)
       res.render("index", {
         post: dbPost
       })
     })
   });
 
+
+  app.get("/user/:id", function(req, res){
+    db.Post.findAll({
+      where: {
+        UserId: req.params.id
+      },
+      order: [
+        ["id", "DESC"]
+      ],
+      include: [db.User]
+    }).then(function(dbUserInfo) {
+      //console.log(dbUserInfo)
+      res.render("userProfile", {
+        post: dbUserInfo
+      })
+    })
+  });
+
+  // Render the submit handlebars file when the user visits /submit
   app.get("/submit", isAuthenticated, function(req, res) {
       res.render("submit")
   });

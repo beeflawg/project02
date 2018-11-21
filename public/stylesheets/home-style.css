@@ -123,6 +123,7 @@ textarea {
     position: fixed;
     border-right: solid #1ab188;
     padding-right: 15px;
+    padding-left: 2px;
     text-align: left;
   }
   /* chat */

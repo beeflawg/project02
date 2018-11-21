@@ -1,7 +1,7 @@
 var express = require("express");
 var path = require("path");
 var bodyParser = require("body-parser");
-var server = require('http').createServer(app).listen(PORT);
+var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
 var app = express();
 

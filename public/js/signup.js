@@ -29,10 +29,14 @@ $(document).ready(function() {
     }
     // If we have an email and password, run the signUpUser function
     signUpUser(userData.email, userData.password);
+    handleAuthorFormSubmit(userData.email);
+    emailInput.val("");
+    passwordInput.val("");
     signupEmailInput.val("");
     signupPasswordInput.val("");
     signupPasswordConfirm.val("");
   });
+  
 
   // Does a post to the signup route. If successful, we are redirected to the members page
   // Otherwise we log any errors
@@ -130,5 +134,6 @@ $(document).ready(function() {
     $(target).fadeIn(600);
     
   });
+
 
 });

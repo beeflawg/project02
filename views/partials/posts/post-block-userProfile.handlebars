@@ -1,0 +1,15 @@
+<div class="single-post-container">
+
+    <p class="d-inline">
+        <span class="title">{{title}}</span>
+        <a href="/user/{{User.id}}"><span class="float-right author">Submitted by: {{User.email}}</span></a>
+    </p>
+    
+    <hr>
+
+    <p class="post-body">{{body}}</p>
+
+    <div class="text-right">
+        <button type="button" class="btn btn-warning delete" data-id="{{id}}">Delete</button>
+    </div>
+</div>

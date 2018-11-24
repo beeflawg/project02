@@ -2,15 +2,26 @@ $(document).ready(function() {
   // Getting references to our form and input
   var loginForm = $("form.login");
   var signUpForm = $("form.signup");
-  var emailInput = $("input#email-input");
-  var passwordInput = $("input#password-input");
+  var signupEmailInput = $("input#signup-email-input");
+  var signupPasswordInput = $("input#signup-password-input");
+  var signupPasswordConfirm = $("input#signup-password-confirm")
+  var loginEmailInput = $("input#login-email-input");
+  var loginPasswordInput = $("input#login-password-input");
 
   // When the signup button is clicked, we validate the email and password are not blank
   signUpForm.on("submit", function(event) {
+
     event.preventDefault();
+
+    if (signupPasswordInput.val().trim() !== signupPasswordConfirm.val().trim()){
+      handlePassErr();
+      return;
+    }
+
+    
     var userData = {
-      email: emailInput.val().trim(),
-      password: passwordInput.val().trim()
+      email: signupEmailInput.val().trim(),
+      password: signupPasswordInput.val().trim()
     };
 
     if (!userData.email || !userData.password) {
@@ -18,8 +29,9 @@ $(document).ready(function() {
     }
     // If we have an email and password, run the signUpUser function
     signUpUser(userData.email, userData.password);
-    emailInput.val("");
-    passwordInput.val("");
+    signupEmailInput.val("");
+    signupPasswordInput.val("");
+    signupPasswordConfirm.val("");
   });
 
   // Does a post to the signup route. If successful, we are redirected to the members page
@@ -31,14 +43,14 @@ $(document).ready(function() {
     }).then(function(data) {
       window.location.replace(data);
       // If there's an error, handle it by throwing up a bootstrap alert
-    }).catch(handleLoginErr);
+    }).catch(handleSignupErr);
   }
 
   loginForm.on("submit", function(event) {
     event.preventDefault();
     var userData = {
-      email: emailInput.val().trim(),
-      password: passwordInput.val().trim()
+      email: loginEmailInput.val().trim(),
+      password: loginPasswordInput.val().trim()
     };
 
     if (!userData.email || !userData.password) {
@@ -47,8 +59,8 @@ $(document).ready(function() {
 
     // If we have an email and password we run the loginUser function and clear the form
     loginUser(userData.email, userData.password);
-    emailInput.val("");
-    passwordInput.val("");
+    loginEmailInput.val("");
+    loginPasswordInput.val("");
   });
 
   // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
@@ -59,13 +71,21 @@ $(document).ready(function() {
     }).then(function(data) {
       window.location.replace(data);
       // If there's an error, log the error
-    }).catch(function(err) {
-      console.log(err);
-    });
+    }).catch(handleLoginErr);
   }
 
   function handleLoginErr(err) {
-    $("#alert .msg").text(err.responseJSON);
+    $("#alert .msg").text("Incorrect Email or Password.");
+    $("#alert").fadeIn(500);
+  }
+
+  function handleSignupErr(err) {
+    $("#alert .msg").text("This Email is already registered to an account!");
+    $("#alert").fadeIn(500);
+  }
+
+  function handlePassErr(err) {
+    $("#alert .msg").text("Passwords do not match!");
     $("#alert").fadeIn(500);
   }
 

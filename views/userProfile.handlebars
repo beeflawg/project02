@@ -1,0 +1,28 @@
+{{> navbar/nav}}
+<div class="container user-page">
+  <h2>Recent Posts: </h2>
+  <div class="row">
+    <div class="col-9">
+      <div>
+
+        {{#if_eq reqUserId post.[0].UserId}}
+          {{#each post}}
+            {{> posts/post-block-userProfile}}
+          {{/each}}
+        {{else}}
+          {{#each post}}
+            {{> posts/post-block}}
+          {{/each}}
+        {{/if_eq}}
+
+      </div>
+    </div>
+
+    {{#if post}}
+      {{> user/user-block}}
+    {{else}}
+      {{> user/user-block-noPost}}
+    {{/if}}
+
+  </div>
+</div>

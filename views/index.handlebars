@@ -1,0 +1,21 @@
+{{> navbar/nav}}
+
+<div class="container">
+  <h2>Recent Posts: </h2>
+  <div>
+
+    {{#each post}}
+      {{> posts/post-block}}
+    {{/each}}
+
+  </div>
+</div>
+
+
+
+{{!-- Hacky way to get handlebars to execute a script if there is an error --}}
+  {{#if msg}}
+    <script{{loophole}}>alert("{{msg}}")</{{loophole}}script>
+    <a href="/home"> An Error Has Occured. Click Here To Return Home. </a>
+  {{/if}}
+

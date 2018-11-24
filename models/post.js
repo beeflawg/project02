@@ -26,8 +26,4 @@ module.exports = function(sequelize, DataTypes) {
   
     return Post;
   };
-<<<<<<< HEAD
   
-=======
-  
->>>>>>> 3ede721680b76bb69a45a8cf2a91b897d5a8c8a2

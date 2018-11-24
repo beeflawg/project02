@@ -1,10 +1,5 @@
 node_modules/
-<<<<<<< HEAD
 /config/config.json/
 /public/uploads/*
 !/public/.gitkeep/
 !/public/default.png/
-=======
-config/config.json
-
->>>>>>> 3ede721680b76bb69a45a8cf2a91b897d5a8c8a2

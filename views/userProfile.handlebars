@@ -4,6 +4,26 @@
   <div class="row">
     <div class="col-9">
       <div>
+<<<<<<< HEAD
+        {{#each post}}
+        {{> posts/post-block}}
+        {{/each}}
+      </div>
+    </div>
+    <div class="col-3 user-sidebar">
+      <div class="row">
+
+      {{!-- Need to add profile picture to user database --}}
+      <img class="user-img"src="https://via.placeholder.com/100" alt="Profile Picture">
+      </div>
+      <div class="row">
+        
+        <p>Name: {{#with post.[0]}}{{User.email}}{{/with}}</p>
+        
+      </div>
+      
+    </div>
+=======
 
         {{#if_eq reqUserId post.[0].UserId}}
           {{#each post}}
@@ -24,5 +44,6 @@
       {{> user/user-block-noPost}}
     {{/if}}
 
+>>>>>>> 0a46558350357334bc0b942e518b7af852988d4f
   </div>
 </div>

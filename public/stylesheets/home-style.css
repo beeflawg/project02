@@ -126,6 +126,10 @@ textarea {
 }
 
 .user-img {
+<<<<<<< HEAD
+    margin-top: 15px;
+    margin-left: 15px;
+=======
     margin-left: 15px;
 }
 
@@ -145,4 +149,5 @@ textarea {
     padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;
+>>>>>>> 0a46558350357334bc0b942e518b7af852988d4f
 }

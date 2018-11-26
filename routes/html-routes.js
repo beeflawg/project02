@@ -23,9 +23,14 @@ module.exports = function (app) {
         ["id", "DESC"]
       ],
       include: [db.User]
+<<<<<<< HEAD
+    }).then(function(dbPost) {
+      //console.log(dbPost);
+=======
     }).then(function (dbPost) {
       //console.log(dbPost);
       //console.log(req.user.id)
+>>>>>>> 0a46558350357334bc0b942e518b7af852988d4f
       res.render("index", {
         post: dbPost,
         reqUserId: req.user.id
@@ -43,6 +48,14 @@ module.exports = function (app) {
         ["id", "DESC"]
       ],
       include: [db.User]
+<<<<<<< HEAD
+    }).then(function(dbUserInfo) {
+      console.log(dbUserInfo);
+      res.render("userProfile", {
+        post: dbUserInfo
+      })
+    })
+=======
     }).then(function (dbUserInfo) {
       if (dbUserInfo.length != 0) {
         res.render("userProfile", {
@@ -65,6 +78,7 @@ module.exports = function (app) {
         });
       };
     });
+>>>>>>> 0a46558350357334bc0b942e518b7af852988d4f
   });
 
   // Render the submit handlebars file when the user visits /submit

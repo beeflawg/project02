@@ -113,3 +113,19 @@ textarea {
 .cap-title {
     color: #fff;
 }
+
+.user-sidebar {
+    background: rgba(19, 35, 47, .9);
+    height: 20em;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px 4px rgba(19, 35, 47, .3);
+}
+
+.user-page {
+    max-width: 70%;
+}
+
+.user-img {
+    margin-top: 15px;
+    margin-left: 15px;
+}

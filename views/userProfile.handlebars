@@ -1,9 +1,26 @@
 {{> navbar/nav}}
-<div class="container">
+<div class="container user-page">
   <h2>Recent Posts: </h2>
-  <div>
-    {{#each post}}
-    {{> posts/post-block}}
-    {{/each}}
+  <div class="row">
+    <div class="col-9">
+      <div>
+        {{#each post}}
+        {{> posts/post-block}}
+        {{/each}}
+      </div>
+    </div>
+    <div class="col-3 user-sidebar">
+      <div class="row">
+
+      {{!-- Need to add profile picture to user database --}}
+      <img class="user-img"src="https://via.placeholder.com/100" alt="Profile Picture">
+      </div>
+      <div class="row">
+        
+        <p>Name: {{#with post.[0]}}{{User.email}}{{/with}}</p>
+        
+      </div>
+      
+    </div>
   </div>
 </div>

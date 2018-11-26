@@ -24,7 +24,7 @@ module.exports = function(app) {
       ],
       include: [db.User]
     }).then(function(dbPost) {
-      //console.log(dbPost)
+      //console.log(dbPost);
       res.render("index", {
         post: dbPost
       })
@@ -42,7 +42,7 @@ module.exports = function(app) {
       ],
       include: [db.User]
     }).then(function(dbUserInfo) {
-      //console.log(dbUserInfo)
+      console.log(dbUserInfo);
       res.render("userProfile", {
         post: dbUserInfo
       })

@@ -113,3 +113,36 @@ textarea {
 .cap-title {
     color: #fff;
 }
+
+.user-sidebar {
+    background: rgba(19, 35, 47, .9);
+    height: 20em;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px 4px rgba(19, 35, 47, .3);
+}
+
+.user-page {
+    max-width: 70%;
+}
+
+.user-img {
+    margin-left: 15px;
+}
+
+.btn-change-profile-pic {
+    margin: 1em;
+}
+
+.user-name {
+    color: white;
+    font-weight: bold;
+    margin-top: 1em;
+    padding: 0;
+}
+
+.inputfile {
+	border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+}

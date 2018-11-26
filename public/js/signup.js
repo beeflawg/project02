@@ -29,9 +29,6 @@ $(document).ready(function() {
     }
     // If we have an email and password, run the signUpUser function
     signUpUser(userData.email, userData.password);
-    handleAuthorFormSubmit(userData.email);
-    emailInput.val("");
-    passwordInput.val("");
     signupEmailInput.val("");
     signupPasswordInput.val("");
     signupPasswordConfirm.val("");

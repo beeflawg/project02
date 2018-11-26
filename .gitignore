@@ -1,2 +1,5 @@
 node_modules/
-config/config.json
+/config/config.json/
+/public/uploads/*
+!/public/.gitkeep/
+!/public/default.png/

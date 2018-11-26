@@ -1,0 +1,46 @@
+<div class="col-3 user-sidebar">
+    <div class="row user-name justify-content-center">
+        <p>Name: {{post.[0].User.email}}</p>
+    </div>
+    <div class="row">
+        <div class="col-12 pl-0">
+            <img class="user-img" src="../uploads/{{post.[0].User.profileImg}}" width="100px" height="100px" alt="Profile Picture">
+        </div>
+
+        {{#if_eq reqUserId post.[0].UserId}}
+        <button type="button" class="btn btn-primary btn-change-profile-pic" data-toggle="modal" data-target="#exampleModal">
+            Change Profile Picture
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Change Profile Picture</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/upload" id="myForm" name="myForm" enctype="multipart/form-data" method="post">
+                            <div class="custom-file">
+                                <input class="custom-file-input" id="customFile" name="myFile" type="file">
+                                <label class="custom-file-label" for="customFile">Choose file</label>
+                                {{!-- <button type="submit" class="btn btn-primary">Submit</button> --}}
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button id="picSubmit" type="submit" class="btn btn-primary" form="myForm">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{else}}
+        <div></div>
+        {{/if_eq}}
+    </div>
+</div>

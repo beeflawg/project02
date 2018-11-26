@@ -126,6 +126,28 @@ textarea {
 }
 
 .user-img {
+<<<<<<< HEAD
     margin-top: 15px;
     margin-left: 15px;
+=======
+    margin-left: 15px;
+}
+
+.btn-change-profile-pic {
+    margin: 1em;
+}
+
+.user-name {
+    color: white;
+    font-weight: bold;
+    margin-top: 1em;
+    padding: 0;
+}
+
+.inputfile {
+	border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+>>>>>>> 0a46558350357334bc0b942e518b7af852988d4f
 }

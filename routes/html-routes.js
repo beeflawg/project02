@@ -5,9 +5,9 @@ var path = require("path");
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 var db = require("../models");
-module.exports = function(app) {
+module.exports = function (app) {
 
-  app.get("/", function(req, res) {
+  app.get("/", function (req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
       res.redirect("/home");
@@ -17,22 +17,29 @@ module.exports = function(app) {
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.get("/home", isAuthenticated, function(req, res) {
+  app.get("/home", isAuthenticated, function (req, res) {
     db.Post.findAll({
       order: [
         ["id", "DESC"]
       ],
       include: [db.User]
+<<<<<<< HEAD
     }).then(function(dbPost) {
       //console.log(dbPost);
+=======
+    }).then(function (dbPost) {
+      //console.log(dbPost);
+      //console.log(req.user.id)
+>>>>>>> 0a46558350357334bc0b942e518b7af852988d4f
       res.render("index", {
-        post: dbPost
+        post: dbPost,
+        reqUserId: req.user.id
       })
     })
   });
 
 
-  app.get("/user/:id", function(req, res){
+  app.get("/user/:id", isAuthenticated, function (req, res) {
     db.Post.findAll({
       where: {
         UserId: req.params.id
@@ -41,17 +48,41 @@ module.exports = function(app) {
         ["id", "DESC"]
       ],
       include: [db.User]
+<<<<<<< HEAD
     }).then(function(dbUserInfo) {
       console.log(dbUserInfo);
       res.render("userProfile", {
         post: dbUserInfo
       })
     })
+=======
+    }).then(function (dbUserInfo) {
+      if (dbUserInfo.length != 0) {
+        res.render("userProfile", {
+          post: dbUserInfo,
+          reqUserId: req.user.id
+        });
+      } else {
+        // If the user has no posts, their data will not be tied 
+        // to the Post table, so if none exist we pull from the
+        // Users table
+        db.User.findOne({
+          where: {
+            id: req.params.id
+          }
+        }).then(function(userNoPosts){
+          res.render("userProfile", {
+            noPost: userNoPosts,
+            reqUserId: req.user.id
+          });
+        });
+      };
+    });
+>>>>>>> 0a46558350357334bc0b942e518b7af852988d4f
   });
 
   // Render the submit handlebars file when the user visits /submit
-  app.get("/submit", isAuthenticated, function(req, res) {
-      res.render("submit")
+  app.get("/submit", isAuthenticated, function (req, res) {
+    res.render("submit")
   });
-
 };

@@ -4,6 +4,7 @@
   <div class="row">
     <div class="col-9">
       <div>
+<<<<<<< HEAD
         {{#each post}}
         {{> posts/post-block}}
         {{/each}}
@@ -22,5 +23,27 @@
       </div>
       
     </div>
+=======
+
+        {{#if_eq reqUserId post.[0].UserId}}
+          {{#each post}}
+            {{> posts/post-block-userProfile}}
+          {{/each}}
+        {{else}}
+          {{#each post}}
+            {{> posts/post-block}}
+          {{/each}}
+        {{/if_eq}}
+
+      </div>
+    </div>
+
+    {{#if post}}
+      {{> user/user-block}}
+    {{else}}
+      {{> user/user-block-noPost}}
+    {{/if}}
+
+>>>>>>> 0a46558350357334bc0b942e518b7af852988d4f
   </div>
 </div>

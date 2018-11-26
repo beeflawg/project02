@@ -4,7 +4,6 @@
     "password": "root",
     "database": "passport_demo",
     "host": "127.0.0.1",
-    "port" : 8889,
     "dialect": "mysql"
   },
   "test": {
@@ -16,7 +15,7 @@
   },
   "production": {
     "use_env_variable": "JAWSDB_URL",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "operatorsAliases": false
   }
 }
-// 
